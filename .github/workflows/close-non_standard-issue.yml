@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.com/
+      - name: get pwd
+        run: pwd & ls
       - name: lint sh
         run: ISSUE=&{{github.event.issue.body}} node .github/script/lintIssue.js
       - name: 'close-issue'
