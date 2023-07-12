@@ -26,9 +26,3 @@ jobs:
         with:
           actions: 'close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'close-issue'
-        if: ${{env.close-issue.ISSUE_CHECK_RESULT != 'pass'}}
-        uses: actions-cool/issues-helper@v2
-        with:
-          actions: 'close-issue'
-          token: ${{ secrets.GITHUB_TOKEN }}
