@@ -19,10 +19,10 @@ jobs:
           registry-url: https://registry.npmjs.com/
       - name: lint sh
         run: node ./action_script/lintIssue.js
-         
+      - name: view var
+        run: echo "${{ toJson(env) }}"
       - name: 'close-issue'
         uses: actions-cool/issues-helper@v2
-        if: ${{env.ISSUE_CHECK_RESULT != 'pass'}}
         with:
           actions: 'close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
