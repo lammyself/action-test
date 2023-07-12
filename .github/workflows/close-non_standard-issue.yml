@@ -1,4 +1,4 @@
-name: Remove non-standard issues
+name: close non-standard issues
 
 on:
   issues:
