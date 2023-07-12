@@ -7,6 +7,8 @@ on:
 jobs:
   close-issue:
     runs-on: ubuntu-latest
+    env:
+      ISSUE: ${{ github.event.issue.body }}
     steps:
       - name: 'checkout'
         uses: actions/checkout@v3
@@ -16,7 +18,7 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.com/
       - name: lint sh
-        run: ISSUE=&{{github.event.issue.body}} node action_script/lintIssue.js
+        run: node ./action_script/lintIssue.js
       - name: 'close-issue'
         uses: actions-cool/issues-helper@v2
         with:
