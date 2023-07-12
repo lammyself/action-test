@@ -7,8 +7,16 @@ on:
 jobs:
   close-issue:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.body, fromJson('["问题描述", "复现流程"]')) == false
     steps:
+      - name: 'checkout'
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.com/
+      - name: lint sh
+        run: ISSUE=&{{github.event.issue.body}} node .github/script/lintIssue.js
       - name: 'close-issue'
         uses: actions-cool/issues-helper@v2
         with:
