@@ -18,7 +18,7 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.com/
       - name: lint sh
-        run: node ./action_script/lintIssue.js
+        run: node ./action_script/lintIssue.js  >> "$GITHUB_ENV"
       - name: ${{ env.ISSUE_CHECK_RESULT }}
         run: echo "${{ toJson(env) }}"
       - name: 'close-issue'
