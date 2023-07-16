@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check-issue
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'check-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -17,7 +17,7 @@ jobs:
           title-includes: '【,BUG,】'
           body-includes: '问题描述,问题复现步骤'
       - name: add-label
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         if: steps.check-issue.outputs.check-result == 'true'
         with:
           actions: 'add-labels'
