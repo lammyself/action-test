@@ -17,7 +17,7 @@ jobs:
           title-includes: '【,BUG,】'
           body-includes: '问题描述,问题复现步骤'
       - name: get result
-        run: echo ${{steps.check-issue.outputs}}
+        run: echo ${{toJSON(steps)}}
       - name: add-label
         uses: actions-cool/issues-helper@v3
         if: ${{steps.check-issue.outputs.check-result == 'true'}}
