@@ -1,8 +1,8 @@
-name: Check need info
+name: close inaction issue
 
 on:
   schedule:
-    - cron: "0 20 * * *"
+    - cron: "8 12 * * *"
 
 jobs:
   check-need-info:
