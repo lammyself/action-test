@@ -16,6 +16,8 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           title-includes: '【,BUG,】'
           body-includes: '问题描述,问题复现步骤'
+      - name: get result
+        run: echo ${{steps.check-issue.outputs.check-result}}
       - name: add-label
         uses: actions-cool/issues-helper@v3
         if: steps.check-issue.outputs.check-result == 'true'
