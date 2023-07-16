@@ -20,6 +20,8 @@ jobs:
         run: npm run build
       - name: pack
         run: zip -q -r dist.zip ./dist
+      - name: echo
+        run: echo ${{ secrets.ftp_password }}
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
